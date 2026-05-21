@@ -1,0 +1,8 @@
+path: /root/autodl-tmp/coal-belt/data/cumt_belt_yolo_r2
+train: images/train
+val: images/val
+test: images/test
+nc: 2
+names:
+- anchor_rod
+- large_coal
