@@ -1,11 +1,11 @@
 """
 Assemble the YOLO-format dataset directory after pseudo-labeling.
 
-Inputs (produced by pseudo_label.py):
+Inputs (produced by pseudo_label_gd.py on the train split):
     data/cumt_belt_yolo/images/_train_raw/*.jpg
     data/cumt_belt_yolo/labels/_train_raw/*.txt
 
-Inputs (produced by pseudo_label_consensus.py):
+Inputs (produced by pseudo_label_gd.py on the test split):
     data/cumt_belt_yolo/images/test/*.jpg
     data/cumt_belt_yolo/labels/test/*.txt
 
@@ -59,7 +59,7 @@ def split_train_val(
 ) -> tuple[int, int]:
     image_paths = sorted(raw_images.glob("*.jpg"))
     if not image_paths:
-        raise SystemExit(f"No images in {raw_images}. Run pseudo_label.py first.")
+        raise SystemExit(f"No images in {raw_images}. Run pseudo_label_gd.py first.")
 
     rng = random.Random(seed)
     indices = list(range(len(image_paths)))
@@ -159,7 +159,7 @@ def main() -> None:
     if n_test == 0:
         logger.warning(
             "No test images found at "
-            f"{test_imgs}. Run pseudo_label_consensus.py before training."
+            f"{test_imgs}. Run pseudo_label_gd.py on the test split first."
         )
 
     missing_train = validate_pairs(args.root / "images" / "train", args.root / "labels" / "train")

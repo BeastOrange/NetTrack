@@ -9,7 +9,7 @@ Two modes:
                               record the mAP delta vs. clean inputs.
 
 Both modes accept any YOLO checkpoint produced by `scripts/train.py`. The
-robustness mode reuses the same data.yaml as `scripts/eval.py` so the numbers
+robustness mode reuses the same data.yaml as `scripts/eval_all.py` so the numbers
 stay consistent with the rest of the pipeline.
 """
 
