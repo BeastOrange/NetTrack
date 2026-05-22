@@ -3,7 +3,7 @@ Grounding-DINO zero-shot pseudo-labeling for CUMT-BelT.
 
 Used instead of pseudo_label.py (YOLO-World) because YOLO-World did not fire
 on this underground-coal-mine domain. GD-SwinB does, with these operating
-thresholds (chosen via scripts/probe_gd.py):
+thresholds (empirically tuned on a held-out subset):
 
   锚杆  (anchor rod):  box_thresh=0.25  text_thresh=0.20  → ~6-10 boxes/image
   大块  (large coal):  box_thresh=0.22  text_thresh=0.18  → ~1-3 boxes/image
